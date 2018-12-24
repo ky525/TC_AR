@@ -8,7 +8,7 @@ window.onload = function () {
 	//画面の回転フラグ
 	var orientationchanged = false;
 	//マーカーに対しての直立フラグ
-	var stand_mode = false;
+	var stand_mode = true;
 
 	var models = [];
 	var app = new PIXI.Application(0, 0, { transparent: true });
@@ -148,7 +148,7 @@ window.onload = function () {
 		plane.setAttribute('height', '5');
 		plane.setAttribute('width', '5');
 		//マーカーを基準にしたモデルの相対位置
-		plane.setAttribute('position', '0 0 0');
+		plane.setAttribute('position', '1.4 3.0 0');
 		var stand = stand_mode ? '0 0 0' : '-90 0 0';
 		plane.setAttribute('rotation', stand);
 		marker.appendChild(plane);
