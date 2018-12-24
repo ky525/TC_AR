@@ -121,7 +121,7 @@ window.onload = function () {
 			});
 		});
 		*/
-		return Promise.all([p1, p2]);
+		return Promise.all([p1]);
 	}
 	function addModel() {
 		//ƒ‚ƒfƒ‹‚Ì“o˜^
