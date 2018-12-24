@@ -40,7 +40,7 @@ window.onload = function () {
 			model.animator.getLayer("motion").play(model.motions[rand]);
 
 			//クリックモーション
-			var data = resources['motion2'].data;
+			var data = resources['motion1'].data;
 			model.click_motion = animation.fromMotion3Json(data);
 
 			//視線追従モーション
@@ -85,8 +85,8 @@ window.onload = function () {
 			var loader = new PIXI.loaders.Loader();
 			loader.add('model3', "assets/Momoko/1223_momoko_tougou.model3.json", xhrType);
 			loader.add('motion1', "assets/Momoko/Idle.motion3.json", xhrType);
-			loader.add('motion2', "assets/Momoko/Idle.motion3.json", xhrType);
 			/*
+			loader.add('motion2', "assets/Momoko/Idle.motion3.json", xhrType);
 			loader.add('motion3', "assets/Koharu/Koharu_03.motion3.json", xhrType);
 			loader.add('motion4', "assets/Koharu/Koharu_04.motion3.json", xhrType);
 			loader.add('motion5', "assets/Koharu/Koharu_05.motion3.json", xhrType);
