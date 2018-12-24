@@ -40,7 +40,7 @@ window.onload = function () {
 			model.animator.getLayer("motion").play(model.motions[rand]);
 
 			//クリックモーション
-			var data = resources['motion1'].data;
+			var data = resources['motion2'].data;
 			model.click_motion = animation.fromMotion3Json(data);
 
 			//視線追従モーション
@@ -85,6 +85,7 @@ window.onload = function () {
 			var loader = new PIXI.loaders.Loader();
 			loader.add('model3', "assets/Momoko/1223_momoko_tougou.model3.json", xhrType);
 			loader.add('motion1', "assets/Momoko/Idle.motion3.json", xhrType);
+			loader.add('motion2', "assets/Momoko/Touch.motion3.json", xhrType);
 			/*
 			loader.add('motion2', "assets/Momoko/Idle.motion3.json", xhrType);
 			loader.add('motion3', "assets/Koharu/Koharu_03.motion3.json", xhrType);
@@ -148,7 +149,7 @@ window.onload = function () {
 		plane.setAttribute('height', '5');
 		plane.setAttribute('width', '5');
 		//マーカーを基準にしたモデルの相対位置
-		plane.setAttribute('position', '1.4 3.0 0');
+		plane.setAttribute('position', '1.4 2.5 0');
 		var stand = stand_mode ? '0 0 0' : '-90 0 0';
 		plane.setAttribute('rotation', stand);
 		marker.appendChild(plane);
