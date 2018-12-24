@@ -23,7 +23,8 @@ window.onload = function () {
 			var motions = [];
 			var animation = LIVE2DCUBISMFRAMEWORK.Animation;
 			var override = LIVE2DCUBISMFRAMEWORK.BuiltinAnimationBlenders.OVERRIDE;
-			motions.push(animation.fromMotion3Json(resources['motion2'].data));
+			motions.push(animation.fromMotion3Json(resources['motion1'].data));
+			/*
 			motions.push(animation.fromMotion3Json(resources['motion3'].data));
 			motions.push(animation.fromMotion3Json(resources['motion4'].data));
 			motions.push(animation.fromMotion3Json(resources['motion5'].data));
@@ -31,6 +32,7 @@ window.onload = function () {
 			motions.push(animation.fromMotion3Json(resources['motion7'].data));
 			motions.push(animation.fromMotion3Json(resources['motion8'].data));
 			motions.push(animation.fromMotion3Json(resources['motion9'].data));
+			*/
 			model.motions = motions;
 			model.animator.addLayer("motion", override, 1);
 			//ランダムでモーション再生
@@ -38,7 +40,7 @@ window.onload = function () {
 			model.animator.getLayer("motion").play(model.motions[rand]);
 
 			//クリックモーション
-			var data = resources['motion1'].data;
+			var data = resources['motion2'].data;
 			model.click_motion = animation.fromMotion3Json(data);
 
 			//視線追従モーション
@@ -81,9 +83,10 @@ window.onload = function () {
 		var xhrType = { xhrType: PIXI.loaders.Resource.XHR_RESPONSE_TYPE.JSON };
 		var p1 = new Promise(function (resolve, reject) {
 			var loader = new PIXI.loaders.Loader();
-			loader.add('model3', "assets/Koharu/Koharu.model3.json", xhrType);
-			loader.add('motion1', "assets/Koharu/Koharu_01.motion3.json", xhrType);
-			loader.add('motion2', "assets/Koharu/Koharu_02.motion3.json", xhrType);
+			loader.add('model3', "assets/Momoko/1223_momoko_tougou.model3.json", xhrType);
+			loader.add('motion1', "assets/Momoko/Idle.motion3.json", xhrType);
+			loader.add('motion2', "assets/Momoko/Idle.motion3.json", xhrType);
+			/*
 			loader.add('motion3', "assets/Koharu/Koharu_03.motion3.json", xhrType);
 			loader.add('motion4', "assets/Koharu/Koharu_04.motion3.json", xhrType);
 			loader.add('motion5', "assets/Koharu/Koharu_05.motion3.json", xhrType);
@@ -91,12 +94,14 @@ window.onload = function () {
 			loader.add('motion7', "assets/Koharu/Koharu_07.motion3.json", xhrType);
 			loader.add('motion8', "assets/Koharu/Koharu_08.motion3.json", xhrType);
 			loader.add('motion9', "assets/Koharu/Koharu_09.motion3.json", xhrType);
+			*/
 			loader.load(function (loader, resources) {
 				var builder = new LIVE2DCUBISMPIXI.ModelBuilder();
 				builder.buildFromModel3Json(loader, resources['model3'], complate);
 				function complate(model){ setMotion(model, resources, 0.3, 0.5, resolve, reject); }
 			});
 		});
+		/*
 		var p2 = new Promise(function (resolve, reject) {
 			var loader = new PIXI.loaders.Loader();
 			loader.add('model3', "assets/Haruto/Haruto.model3.json", xhrType);
@@ -115,6 +120,7 @@ window.onload = function () {
 				function complate(model){ setMotion(model, resources, 0.7, 0.5, resolve, reject); }
 			});
 		});
+		*/
 		return Promise.all([p1, p2]);
 	}
 	function addModel() {
